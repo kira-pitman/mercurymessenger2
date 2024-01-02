@@ -1,12 +1,13 @@
-import React from 'react'
-
-import { render } from 'react-dom'
-
-import App from './components/App'
+import { createRoot } from 'react-dom/client'
+import { RouterProvider } from 'react-router-dom'
+import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
+import routes from 'routes.tsx'
 
 document.addEventListener('DOMContentLoaded', () => {
-  render(
-    <App />,
-    document.getElementById('App')
+  const queryClient = new QueryClient()
+  createRoot(document.getElementById('app') as HTMLElement).render(
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={routes} />
+    </QueryClientProvider>
   )
 })

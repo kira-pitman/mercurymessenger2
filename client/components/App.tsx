@@ -1,9 +1,11 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
-const App: React.FC = () => {
+export default function App() {
   return (
-    <h1 data-testid='appHeader'>App has arrived</h1>
+    <div>
+      <p>Hello World!</p>
+      <Outlet />
+    </div>
   )
 }
-
-export default App
